@@ -10,7 +10,7 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use('/auth',router)
 app.use(cors({
-    origin: 'http://localhost:5173'|| 'https://contacts-server-pi.vercel.app',
+    origin: 'http://localhost:5173'|| 'https://verdant-treacle-8e0ee4.netlify.app',
     credentials:true,  
 }))
 
