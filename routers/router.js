@@ -3,8 +3,8 @@ const router = new express.Router()
 const contactDb = require('../model/ContactSchema')
 const cors = require('cors')
 router.use(cors({
-    origin: 'http://localhost:5173',
-    credentials:true,  
+    origin: 'http://localhost:5173' || 'https://contacts-server-pi.vercel.app',
+    credentials:true,   
 }))
 
 router.post('/addcontact', async(req,res)=>{
