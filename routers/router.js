@@ -32,10 +32,23 @@ router.get('/allcontacts', async(req,res)=>{
 })
 router.delete('/allcontacts/:id', async(req,res)=>{
     const id = req.params.id
-    const deleteContact = await contactDb.findByIdAndDelete(id)
+    const deleteContact = await contactDb.findByIdAndDelete({_id:id})
     res.send(deleteContact)
     
     console.log(deleteContact)
+})
+router.put('/allcontacts/:id', async(req,res)=>{
+    const id = req.params.id
+    const {name,phone,email,address,photo,favourite}=req.body
+    const updated = await contactDb.findOneAndUpdate(
+       { _id:id},{
+        $set:{phone:phone,name:name,email:email,photo:photo,address:address,favourite:favourite}
+       },
+       {new:true}
+    )
+    res.send(updated)
+    
+    console.log(updated)
 })
 
 

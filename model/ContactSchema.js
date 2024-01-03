@@ -23,7 +23,12 @@ const contactSchema = new mongoose.Schema({
     photo:{
         type:String,
         required:true
+    },
+    favourite:{
+        type:Boolean,
+        default:false
     }
+
 
 
 })
